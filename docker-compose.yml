@@ -1,0 +1,19 @@
+version: '3.8'
+
+
+services:
+  bibmysql:
+    image: mysql:8.0.29
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: 'bibliotex'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3352:3306'
+    volumes:
+      - bibdb:/var/lib/mysql
+
+volumes:
+  bibdb:
